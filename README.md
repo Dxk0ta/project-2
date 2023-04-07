@@ -50,6 +50,11 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 * Simple layout of what the website will look like!
 
 ![wireframe](./wireframe.png)
+---
+
+### User Stories
+---
+![wireframe](./userstories.png)
 
 ---
 
