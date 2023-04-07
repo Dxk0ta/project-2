@@ -54,7 +54,8 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 
 ### User Stories
 ---
-![wireframe](./userstories.png)
+![wireframe](./userstory1.png)
+![wireframe](./userstory2.png)
 ---
 
 ### ERD
