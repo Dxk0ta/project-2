@@ -42,6 +42,11 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 * Javascript
 * SQL
 * EXPRESS
+* PG
+* EJS
+* bcrypt
+* crytojs
+* dotenv
 
 
 
@@ -69,9 +74,11 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 ![wireframe](./restfulcrud.png)
 ---
 
-### My API I will be using
+### APIs I will be using
 
-Link: https://rapidapi.com/mortimerbrian135/api/exerciseapi3/
+Links: 
+---
+* https://rapidapi.com/mortimerbrian135/api/exerciseapi3/
 ---
 
 
