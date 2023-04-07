@@ -1,5 +1,5 @@
  # Happy Healthy Minds!
- Welcome to my second project! This is my first fullstack website and I wanted to do something meaningful with it! Mental health is very important to me, so I thought it would be cool to have a website that feeds you resources spacifically to your needs! 
+ Welcome to my second project! This is my first fullstack website and I wanted to do something meaningful with it! Mental health is very important to me, so I thought it would be cool to have a website that feeds you resources spacifically to your needs and gives you a organized, visually appealing place to store the information just for you!
 
 Here is the link! 
 
@@ -58,7 +58,7 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 
 ---
 
-## The Process of The Dice Is Right
+## The Process of Happy Healthy Minds!
 ---
 (DAY ONE)
 
