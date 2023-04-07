@@ -55,8 +55,24 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 ### User Stories
 ---
 ![wireframe](./userstories.png)
-
 ---
+
+### ERD
+
+![wireframe](./erd.png)
+---
+
+### Restful Routing Chart
+---
+
+![wireframe](./restfulcrud.png)
+---
+
+### My API I will be using
+
+Link: https://rapidapi.com/mortimerbrian135/api/exerciseapi3/
+---
+
 
 ## The Process of Happy Healthy Minds!
 ---
