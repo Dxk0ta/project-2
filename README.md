@@ -60,7 +60,7 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 
 ### User Stories
 ---
-![wireframe](./userstories.png)
+![wireframe](./userstories.jpg)
 ---
 
 ### ERD
