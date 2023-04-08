@@ -60,8 +60,7 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 
 ### User Stories
 ---
-![wireframe](./userstory1.png)
-![wireframe](./userstory2.png)
+![wireframe](./userstories.png)
 ---
 
 ### ERD
@@ -72,7 +71,7 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 ### Restful Routing Chart
 ---
 
-![wireframe](./restfulcrud.png)
+![wireframe](./restfulcrud.jpg)
 ---
 
 ### APIs I will be using
