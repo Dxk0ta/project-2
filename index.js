@@ -27,7 +27,7 @@ const options = {
   });
 
 // Imports all routes from the pokemon routes file
-app.use('/pokemon', require('./controllers/pokemon'));
+app.use('/user', require('./user/pokemon'));
 
 app.listen(port, () => {
   console.log('...listening on', port );

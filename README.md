@@ -65,13 +65,14 @@ I started with visualizing how I wanted my website to look, how I wanted it to r
 
 ### ERD
 
-![wireframe](./erd.jpg)
+![wireframe](./erd.png)
 ---
 
 ### Restful Routing Chart
 ---
 
-![wireframe](./restfulcrud.jpg)
+![wireframe](./restfulcrud.png)
+![wireframe](./restfulcrud2.png)
 ---
 
 ### APIs I will be using
