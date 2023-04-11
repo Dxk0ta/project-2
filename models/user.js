@@ -22,24 +22,3 @@ module.exports = (sequelize, DataTypes) => {
   });
   return user;
 };
-
-class UserModel {
-  constructor() {
-    // initialize user data
-    this.users = [];
-  }
-
-  addUser(user) {
-    // add a user to the users list
-    this.users.push(user);
-  }
-
-  getUsers() {
-    // get all users
-    return this.users;
-  }
-
-  // other methods for user-related operations
-}
-
-module.exports = UserModel;

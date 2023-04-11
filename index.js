@@ -1,37 +1,35 @@
-const express = require('express');
-const axios = require("axios");
-const ejsLayouts = require('express-ejs-layouts');
+const express = require('express')
+const app = express()
+const cookieParser = require('cookie-parser')
+const db = require('./models')
+const cryptoJS = require('crypto-js')
+require('dotenv').config()
 
-const app = express();
-const port = 8000;
+// MIDDLEWARE
+app.set('view engine', 'ejs')
+app.use(cookieParser())
+app.use(express.urlencoded({extended: false}))
 
-app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: false }));
-app.use(ejsLayouts);
+// AUTHENTICATION MIDDLEWARE
+app.use(async (req, res, next)=>{
+    if(req.cookies.userId) {
+        const decryptedId = cryptoJS.AES.decrypt(req.cookies.userId, process.env.SECRET)
+        const decryptedIdString = decryptedId.toString(cryptoJS.enc.Utf8)
+        const user = await db.user.findByPk(decryptedIdString)
+        res.locals.user = user
+    } else res.locals.user = null
+    next()
+})
 
-// GET / - main index of site
-const options = {
-    method: 'GET',
-    url: 'https://workout-planner1.p.rapidapi.com/',
-    params: {time: '30', muscle: 'biceps', location: 'gym', equipment: 'dumbbells'},
-    headers: {
-      'X-RapidAPI-Key': '8e975978damshf8798ff06478691p12c030jsn31c51d51e29c',
-      'X-RapidAPI-Host': 'workout-planner1.p.rapidapi.com'
-    }
-  };
-  
-  axios.request(options).then(function (response) {
-      console.log(response.data);
-  }).catch(function (error) {
-      console.error(error);
-  });
+// CONTROLLERS
+app.use('/users', require('./controllers/users'))
 
-// Imports all routes from the pokemon routes file
-app.use('/user', require('./user/pokemon'));
+// ROUTES
+app.get('/', (req, res) => {
+	res.render('home', { user: res.locals.user })
+})
 
-app.listen(port, () => {
-  console.log('...listening on', port );
-});
-
-
+app.listen(3030, () => {
+    console.log('Project 2 Express Authentication')
+})
 
