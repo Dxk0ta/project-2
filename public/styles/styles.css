@@ -1,0 +1,9 @@
+li {
+    display: inline-block;
+    width: auto;
+    margin-left: 20%;
+}
+div {
+    display: center;
+    text-align: center;
+}

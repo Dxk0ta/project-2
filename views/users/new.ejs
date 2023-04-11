@@ -1,13 +1,14 @@
 <%- include('../header.ejs', { user }) %>
-
-<form action="/users" method="POST">
-	<label for="email">Email:</label>
-	<input type="email" name="email" id="email">
-
-	<label for="password">Password:</label>
-	<input type="password" name="password" id="password">
-
-	<button type="submit">Sign Up</button>
-</form>
+<div>
+    <form action="/users" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+    
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+    
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
 
 <%- include('../footer.ejs') %>
