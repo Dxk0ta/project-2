@@ -24,10 +24,31 @@ app.use(express.static(__dirname + '/public'));
 
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
+app.use('/posts', require('./controllers/posts'))
 
 // ROUTES
 app.get('/', (req, res) => {
 	res.render('home', { user: res.locals.user })
+})
+
+app.get('/create', (req, res) => {
+	res.render('create')
+})
+
+app.get('/posts', (req, res) => {
+	res.render('posts', {posts: []})
+})
+
+app.post('/posts', (req, res) => {
+	res.send(req.body);
+})
+
+app.get('/edit', (req, res) => {
+	res.render('edit')
+})
+
+app.get('/show', (req, res) => {
+	res.render('show')
 })
 
 // Fetch trending GIFs from GIPHY API
