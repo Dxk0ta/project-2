@@ -1,9 +1,14 @@
-li {
+.nav_bar {
     display: inline-block;
     width: auto;
     margin-left: 20%;
+    background-color: aqua;
+   
+
 }
-div {
+
+.create_blog {
     display: center;
     text-align: center;
 }
+

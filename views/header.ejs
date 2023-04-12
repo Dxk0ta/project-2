@@ -8,11 +8,13 @@
     <title>Soliloquy</title>
 </head>
 <body>
-	<nav>
+	
+	<nav class="nav_bar">
 		<ul>
 
 			<li><a href="/">Home</a></li>
 			<% if(user){ %>
+				
 				<li><a href="/users/profile">Profile</a></li>
 				<li><a href="/users/logout">Logout</a></li>
 			<% } else { %> 
@@ -21,3 +23,4 @@
 			<% } %>
 		</ul>
 	</nav>
+	
