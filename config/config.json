@@ -2,17 +2,17 @@
   "development": {
     "username": "postgres",
     "password": "dakota",
-    "database": "workoutDB",
+    "database": "soliloquy",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "workoutDB_test",
+    "database": "soliloquy_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "workoutDB_production",
+    "database": "soliloquy_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

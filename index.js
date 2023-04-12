@@ -3,7 +3,7 @@ const app = express()
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const cryptoJS = require('crypto-js')
-const Gif = db.Gif;
+// const Gif = db.Gif;
 
 require('dotenv').config()
 // MIDDLEWARE
@@ -29,7 +29,14 @@ app.use('/users', require('./controllers/users'))
 app.get('/', (req, res) => {
 	res.render('home', { user: res.locals.user })
 })
+// get route
+app.get('/posts/:id', async (req, res) => {
+  const userId = req.params.id;
+});
 
+// post route
+// put route
+// delete route
 // Fetch trending GIFs from GIPHY API
 app.get('/gifs', async (req, res) => {
   try {
