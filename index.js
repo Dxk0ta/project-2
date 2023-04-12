@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser')
 const db = require('./models')
 const cryptoJS = require('crypto-js')
 const Gif = db.Gif;
+const postController = require('./controllers/posts')
 
 require('dotenv').config()
 // MIDDLEWARE
@@ -24,32 +25,30 @@ app.use(express.static(__dirname + '/public'));
 
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
-app.use('/posts', require('./controllers/posts'))
+// app.use('/posts', require('./controllers/posts'))
 
 // ROUTES
 app.get('/', (req, res) => {
 	res.render('home', { user: res.locals.user })
 })
 
-app.get('/create', (req, res) => {
-	res.render('create')
-})
+app.get('/create',  postController.create) 
 
-app.get('/posts', (req, res) => {
-	res.render('posts', {posts: []})
-})
+app.get('/index',  postController.index) 
+
+app.get('/posts',  postController.index) 
 
 app.post('/posts', (req, res) => {
-	res.send(req.body);
+	res.send(req.body)
 })
 
-app.get('/edit', (req, res) => {
-	res.render('edit')
-})
+app.get('/edit',  postController.edit) 
 
-app.get('/show', (req, res) => {
-	res.render('show')
-})
+app.get('/store',  postController.store) 
+
+app.get('/update',  postController.update) 
+
+app.get('/destroy',  postController.destroy) 
 
 // Fetch trending GIFs from GIPHY API
 app.get('/gifs', async (req, res) => {
@@ -74,6 +73,6 @@ app.get('/gifs', async (req, res) => {
 });
 
 app.listen(3030, () => {
-    console.log('Project 2 Express Authentication')
+    console.log('the server is running!')
 })
 

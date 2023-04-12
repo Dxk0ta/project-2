@@ -3,10 +3,6 @@ const router = express();
 const db = require("../models");
 const axios = require("axios");
 
-router.get('/create', (req, res) => {
-    res.render('/create');
-});
-
 // Index - Get all posts
 exports.index = async (req, res) => {
   try {
@@ -32,8 +28,8 @@ exports.show = async (req, res) => {
   };
   
   // Create - Render create post form
-  exports.create = (req, res) => {
-    res.render('posts/create');
+  exports.create = async (req, res) => {
+    res.render('create');
   };
   
   // Store - Create a new post
@@ -91,5 +87,3 @@ exports.show = async (req, res) => {
     res.status(500).send({ error: 'An error occurred while updating the post' });
   }
 };
-
-module.exports = router;
