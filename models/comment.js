@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+// const { post } = require('./Post');
 module.exports = (sequelize, DataTypes) => {
   class comment extends Model {
     /**
@@ -11,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      comment.belongsTo(models.post);
+      models.comment.belongsTo(models.post);
     }
   }
   comment.init({

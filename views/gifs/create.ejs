@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css" type="text/css">
+    <title>Soliloquy</title>
+  <title>Gif Page</title>
+</head>
+
+<body>
+    <div class="create_blog">
+        <h1>Gif Page</h1>
+    </div>
+    <div>
+        <ul>
+            <% gifs.forEach(gif => { %>
+              <img src="<%= gif.url %>"></img>
+            <% }); %>
+          </ul>
+    </div>
+    <a href="/gifs">Back to gifs</a>
+</body>
+
+</html>

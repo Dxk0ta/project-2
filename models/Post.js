@@ -2,8 +2,8 @@
 const {
   Model
 } = require('sequelize');
-const user = require('./user');
-const { comment } = require('./Comment');
+// const user = require('./user');
+// const { comment } = require('./Comment');
 module.exports = (sequelize, DataTypes) => {
   class post extends Model {
     /**
@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      post.belongsTo(models.user);
-      post.hasMany(models.comment);
+    //   post.belongsTo(models.user);
+      models.post.hasMany(models.comment);
     }
   }
   post.init({

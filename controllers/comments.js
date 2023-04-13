@@ -5,17 +5,21 @@ const axios = require("axios");
 
 // Index - Get all comments
 exports.index = async (req, res) => {
+    console.log('indexing!!!!!!!!!!')
     try {
       const comments = await db.comment.findAll();
+
+      console.log(comments)
   
       res.render('comments/comments', { comments });
     } catch (error) {
-      res.status(500).send({ getAllcomments: 'An error occurred while fetching comments', error });
+      res.status(500).send({ getAllComments: 'An error occurred while fetching comments', error });
     }
   }
   
   // Show - Get a specific comment
   exports.show = async (req, res) => {
+    console.log('showing!!!!!!!!')
       try {
         const comment = await db.comment.findByPk(req.params.id);
         if (!comment) {
@@ -37,22 +41,28 @@ exports.index = async (req, res) => {
     // Store - Create a new comment
     exports.store = async (req, res) => {
       try {
-        const { title, content } = req.body;
-  
-        console.log({title, content})
-        const comment = await db.comment.create({ title, content });
-        console.log('I was called')
+        console.log(0)
+        const post = await db.post.findByPk(req.params.id);
+        const { content } = req.body;
+
+        console.log(1)
+
+
+        const comment = await db.comment.create({ content });
+        console.log(2)
+        post.addItem(comment)
+        console.log(3)
   
         res.redirect(`/comments`);
       } catch (error) {
-          console.log('error:  ', error)
+          console.log('error:  ', error.message)
         res.status(500).send({ error: 'An error occurred while creating the comment' });
       }
     };
     
     // Delete - Delete a specific comment
     exports.destroy = async (req, res) => {
-      console.log('blah')
+      console.log('random')
       try {
         const comment = await db.comment.destroy({
           where: {

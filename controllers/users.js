@@ -36,6 +36,13 @@ router.get('/login', (req, res)=>{
 	})
 })
 
+router.get('/getAllUsers', async (req, res) => {
+    const users = await db.user.findAll()
+    
+	res.send(users)
+})
+
+
 router.post('/login', async (req, res)=>{
     const user = await db.user.findOne({where: {email: req.body.email}})
 	const noLoginMessage = 'Incorrect username or password'

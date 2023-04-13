@@ -3,10 +3,8 @@ const app = express()
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const cryptoJS = require('crypto-js')
-const Gif = db.Gif;
 const postController = require('./controllers/posts')
 const commentController = require('./controllers/comments')
-
 
 require('dotenv').config()
 // MIDDLEWARE
@@ -53,13 +51,17 @@ app.post('/deletePost/:id',  postController.destroy)
 app.get('/create', postController.create) 
 
 // Display create form
-app.get('/createPost', commentController.create) 
+app.get('/createPost', postController.create) 
 
 // Display update form
 app.get('/posts/:id/edit',  postController.edit) 
 
+
+
+// ------------ Comments -----------------
+
 // Create
-app.post('/comments', commentController.store)
+app.post('/comments/:id', commentController.store)
 
 // Read
 app.get('/comments', commentController.index) 
@@ -86,10 +88,7 @@ app.get('/gifs', async (req, res) => {
       };
     });
 
-    // Store retrieved GIFs in database
-    await Gif.bulkCreate(gifs);
-
-    res.render('gifs', { gifs });
+    res.render('gifs/create', { gifs });
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
