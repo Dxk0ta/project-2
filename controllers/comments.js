@@ -13,23 +13,10 @@ exports.index = async (req, res) => {
   }
 };jk677
 
-// Show - Get a specific comment
-exports.show = async (req, res) => {
-    try {
-      const comment = await db.Comment.findByPk(req.params.id);
-      if (!comment) {
-        res.status(404).send({ error: 'Comment not found' });
-      } else {
-        res.render('comments/show', { post });
-      }
-    } catch (error) {
-      res.status(500).send({ error: 'An error occurred while fetching the comment' });
-    }
-  };
   
   // Create - Render create comment form
   exports.create = async (req, res) => {
-    res.render('create');
+    res.render('comments/create');
   };
   
   // Store - Create a new post

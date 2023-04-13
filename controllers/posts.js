@@ -2,23 +2,34 @@ const express = require("express");
 const router = express();
 const db = require("../models");
 const axios = require("axios");
-
 // Index - Get all posts
 exports.index = async (req, res) => {
   try {
-    const posts = await db.Post.findAll();
-    res.render('posts/index', { posts });
-  } catch (error) {
-    res.status(500).send({ error: 'An error occurred while fetching posts' });
-  }
-};
+    const posts = await db.post.findAll();
 
-// Show - Get a specific post
+    res.render('posts/posts', { posts });
+  } catch (error) {
+    res.status(500).send({ getAllPosts: 'An error occurred while fetching posts', error });
+  }
+}
+
+exports.getPosts = async (req, res) => {
+  try {
+    const posts = await db.post.findAll();
+
+    res.send(posts)
+
+  } catch (error) {
+    res.status(500).send(error)
+  }
+}
+
+// Show - Get a specific comment
 exports.show = async (req, res) => {
     try {
-      const post = await db.Post.findByPk(req.params.id);
+      const post = await db.post.findByPk(req.params.id);
       if (!post) {
-        res.status(404).send({ error: 'Post not found' });
+        res.status(404).send({ error: 'post not found' });
       } else {
         res.render('posts/show', { post });
       }
@@ -26,19 +37,25 @@ exports.show = async (req, res) => {
       res.status(500).send({ error: 'An error occurred while fetching the post' });
     }
   };
+
   
   // Create - Render create post form
   exports.create = async (req, res) => {
-    res.render('create');
+    res.render('posts/create');
   };
   
   // Store - Create a new post
   exports.store = async (req, res) => {
     try {
       const { title, content } = req.body;
-      const post = await db.Post.create({ title, content });
-      res.redirect(`/posts/${post.id}`);
+
+      console.log({title, content})
+      const post = await db.post.create({ title, content });
+      console.log('I was called')
+
+      res.redirect(`/posts`);
     } catch (error) {
+        console.log('error:  ', error)
       res.status(500).send({ error: 'An error occurred while creating the post' });
     }
   };
@@ -46,7 +63,7 @@ exports.show = async (req, res) => {
   // Edit - Render edit post form
   exports.edit = async (req, res) => {
     try {
-      const post = await db.Post.findByPk(req.params.id);
+      const post = await db.post.findByPk(req.params.id);
       if (!post) {
         res.status(404).send({ error: 'Post not found' });
       } else {
@@ -61,14 +78,15 @@ exports.show = async (req, res) => {
   exports.update = async (req, res) => {
     try {
       const { title, content } = req.body;
-      const post = await db.Post.findByPk(req.params.id);
+      const post = await db.post.findByPk(req.params.id);
       if (!post) {
         res.status(404).send({ error: 'Post not found' });
       } else {
         await post.update({ title, content });
-        res.redirect(`/posts/${post.id}`);
+        res.redirect(`/posts`);
       }
     } catch (error) {
+        console.log('error!!!', error)
       res.status(500).send({ error: 'An error occurred while updating the post' });
     }
   };

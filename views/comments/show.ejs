@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comments Page</title>
+</head>
+<body>
+  <p><%= comment.content %></p>
+  <a href="/comments">Back to comments</a>
+  <a href="/comments/<%= comment.id %>/edit">Edit Comment</a>
+  <form action="/comments/<%= comment.id %>?_method=DELETE" method="comment">
+    <button type="submit">Delete Comment</button>
+  </form>
+</body>
+</html>

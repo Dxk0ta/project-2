@@ -1,9 +1,13 @@
 const express = require('express')
 const db = require('../models')
+// const user = require('../models/user')
+// const post = require('../models/Post')
 const router = express.Router()
 const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
+
+db.sequelize.sync()
 
 router.get('/new', (req, res)=>{
     res.render('users/new.ejs', { user: res.locals.user })

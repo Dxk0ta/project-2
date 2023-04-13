@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Comments</title>
+</head>
+<body>
+  <h1>Blog Comments</h1>
+  <ul>
+    <% comments.forEach(comment => { %>
+      <li><a href="/comments/<%= comment.id %>"><%= comment.content %></a></li>
+    <% }); %>
+  </ul>
+  <a href="/create">Create New Comment</a>
+</body>
+</html>

@@ -6,6 +6,7 @@ const cryptoJS = require('crypto-js')
 const Gif = db.Gif;
 const postController = require('./controllers/posts')
 
+
 require('dotenv').config()
 // MIDDLEWARE
 app.set('view engine', 'ejs')
@@ -32,19 +33,24 @@ app.get('/', (req, res) => {
 	res.render('home', { user: res.locals.user })
 })
 
+
+app.get('/getAllPosts', postController.getPosts)
+
 app.get('/create',  postController.create) 
+
+app.get('/posts/:id',  postController.show) 
+
+app.post('/posts/:id',  postController.update) 
 
 app.get('/index',  postController.index) 
 
 app.get('/posts',  postController.index) 
 
-app.post('/posts', (req, res) => {
-	res.send(req.body)
-})
+app.post('/posts', postController.store)
 
-app.get('/edit',  postController.edit) 
+app.get('/posts/:id/edit',  postController.edit) 
 
-app.get('/store',  postController.store) 
+// app.get('/store',  postController.store) 
 
 app.get('/update',  postController.update) 
 
@@ -53,7 +59,7 @@ app.get('/destroy',  postController.destroy)
 // Fetch trending GIFs from GIPHY API
 app.get('/gifs', async (req, res) => {
   try {
-    const response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=YOUR_API_KEY&limit=10');
+    const response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=UJZdaoJgztUnBDxgMi1rbL2rka5wdq9c&limit=10');
     const data = await response.json();
     const gifs = data.data.map(gif => {
       return {
