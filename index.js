@@ -7,7 +7,7 @@ const postController = require('./controllers/posts')
 const commentController = require('./controllers/comments')
 
 require('dotenv').config()
-// MIDDLEWARE
+// MIDDLEWAREs
 app.set('view engine', 'ejs')
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
