@@ -13,17 +13,6 @@ exports.index = async (req, res) => {
   }
 }
 
-exports.getPosts = async (req, res) => {
-  try {
-    const posts = await db.post.findAll();
-
-    res.send(posts)
-
-  } catch (error) {
-    res.status(500).send(error)
-  }
-}
-
 // Show - Get a specific comment
 exports.show = async (req, res) => {
     try {
@@ -86,21 +75,22 @@ exports.show = async (req, res) => {
         res.redirect(`/posts`);
       }
     } catch (error) {
-        console.log('error!!!', error)
       res.status(500).send({ error: 'An error occurred while updating the post' });
     }
   };
   
   // Delete - Delete a specific post
   exports.destroy = async (req, res) => {
+    console.log('blah')
     try {
-      const post = await db.Post.findByPk(req.params.id);
-      if (!post) {
-        res.status(404).send({ error: 'Post not found' });
-    } else {
-      await post.update({ title, content });
-      res.redirect(`/posts/${post.id}`);
-    }
+      const post = await db.post.destroy({
+        where: {
+            id: req.params.id
+          }
+        });
+      
+      res.redirect(`/posts`);
+    
   } catch (error) {
     res.status(500).send({ error: 'An error occurred while updating the post' });
   }

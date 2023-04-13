@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { post } = require('./Post');
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     /**
@@ -11,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      user.hasMany(models.post);
     }
   }
   user.init({

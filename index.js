@@ -5,6 +5,7 @@ const db = require('./models')
 const cryptoJS = require('crypto-js')
 const Gif = db.Gif;
 const postController = require('./controllers/posts')
+const commentController = require('./controllers/comments')
 
 
 require('dotenv').config()
@@ -33,28 +34,45 @@ app.get('/', (req, res) => {
 	res.render('home', { user: res.locals.user })
 })
 
+// Create
+app.post('/posts', postController.store)
 
-app.get('/getAllPosts', postController.getPosts)
-
-app.get('/create',  postController.create) 
+// Read
+app.get('/posts', postController.index) 
 
 app.get('/posts/:id',  postController.show) 
 
-app.post('/posts/:id',  postController.update) 
+// Update
+app.post('/posts/:id', postController.update) 
 
-app.get('/index',  postController.index) 
+// Delete
+app.post('/deletePost/:id',  postController.destroy) 
 
-app.get('/posts',  postController.index) 
 
-app.post('/posts', postController.store)
+// Display create form
+app.get('/create', postController.create) 
 
+// Display create form
+app.get('/createPost', commentController.create) 
+
+// Display update form
 app.get('/posts/:id/edit',  postController.edit) 
 
-// app.get('/store',  postController.store) 
+// Create
+app.post('/comments', commentController.store)
 
-app.get('/update',  postController.update) 
+// Read
+app.get('/comments', commentController.index) 
 
-app.get('/destroy',  postController.destroy) 
+app.get('/comments/:id',  commentController.show) 
+
+// Delete
+app.post('/deleteComment/:id',  commentController.destroy) 
+
+
+// Display create form
+app.get('/createComment', commentController.create) 
+
 
 // Fetch trending GIFs from GIPHY API
 app.get('/gifs', async (req, res) => {
