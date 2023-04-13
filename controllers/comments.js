@@ -47,7 +47,6 @@ exports.index = async (req, res) => {
 
         console.log(1)
 
-
         const comment = await db.comment.create({ content });
         console.log(2)
         post.addItem(comment)
