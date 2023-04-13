@@ -81,7 +81,6 @@ exports.show = async (req, res) => {
   
   // Delete - Delete a specific post
   exports.destroy = async (req, res) => {
-    console.log('blah')
     try {
       const post = await db.post.destroy({
         where: {
