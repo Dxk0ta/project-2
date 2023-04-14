@@ -79,8 +79,8 @@ router.get('/profile', async (req, res)=>{
             // Render the "posts.ejs" template with the fetched posts data
             // Render search results in a view
             // res.render('users/profile.ejs', { gifs });
-            res.render('posts/posts.ejs', { posts });
             res.render('users/profile.ejs', { user: res.locals.user })
+            res.render('posts/posts.ejs', { posts });
         } catch (error) {
              // Handle error=
             res.status(500).json({ error: 'Internal server error' });
