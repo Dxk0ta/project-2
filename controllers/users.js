@@ -5,7 +5,7 @@ const router = express.Router()
 const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
-const posts = require('../models/post')
+// const posts = require('../models/post')
 const { Sequelize } = require('sequelize');
 db.sequelize.sync()
 
