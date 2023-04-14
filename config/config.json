@@ -4,14 +4,4 @@
   "database": "soliloquy",
   "host": "localhost",
   "dialect": "postgres"
-},
-"test": {
-  "database": "soliloquy_test",
-  "host": "localhost",
-  "dialect": "postgres"
-},
-"production": {
-  "database": "soliloquy_production",
-  "host": "localhost",
-  "dialect": "postgres"
 }}
