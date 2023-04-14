@@ -2,7 +2,6 @@ const express = require("express");
 const router = express();
 const db = require("../models");
 const axios = require("axios");
-const comment = require('../models/comment')
 
 // Index - Get all comments
 exports.index = async (req, res) => {
@@ -58,7 +57,7 @@ exports.show = async (req, res) => {
       if (!comments) {
         res.status(404).send({ error: 'Comment not found' });
       } else {
-        res.render('comments/edit', { comment });
+        res.render('comments/edit', { comments });
       }
     } catch (error) {
       res.status(500).send({ error: 'An error occurred while fetching the comment' });

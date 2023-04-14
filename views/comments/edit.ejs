@@ -1,9 +1,13 @@
 <%- include('../header.ejs', { user }) %>
 <h1>Edit Comment</h1>
+<<<<<<< HEAD
 <form action="/comments/<%= comment.id %>?_method=PUT" method="comment">
+=======
+<form action="/comments/<%= comments.id %>?_method=PUT" method="post">
+>>>>>>> 548e1b4 (switched comments to show up separately when clicked on each blog post)
   <br>
   <label for="content">Content:</label>
-  <textarea id="content" name="content"><%= comment.content %></textarea>
+  <textarea id="content" name="content"><%= comments.content %></textarea>
   <br>
   <button type="submit">Update Comment</button>
 </form>

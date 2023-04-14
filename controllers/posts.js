@@ -22,8 +22,8 @@ exports.show = async (req, res) => {
       } else {
         const comments = await db.comment.findAll();
         // Render the "posts.ejs" template with the fetched posts data
-        res.render('comments/comments.ejs', { comments });
-        res.render('posts/show', { posts });
+        // res.render('posts/show', { comments });
+        res.render('posts/show', { comments, posts });
       }
     } catch (error) {
       res.status(500).send({ error: 'An error occurred while fetching the post' });
@@ -40,11 +40,9 @@ exports.show = async (req, res) => {
   exports.store = async (req, res) => {
     try {
       const { title, content } = req.body;
-
       console.log({title, content})
-      const post = await db.post.create({ title, content });
+      const posts = await db.post.create({ title, content });
       console.log('I was called')
-
       res.redirect(`/posts`);
     } catch (error) {
         console.log('error:  ', error)
@@ -55,11 +53,11 @@ exports.show = async (req, res) => {
   // Edit - Render edit post form
   exports.edit = async (req, res) => {
     try {
-      const post = await db.post.findByPk(req.params.id);
-      if (!post) {
+      const posts = await db.post.findByPk(req.params.id);
+      if (!posts) {
         res.status(404).send({ error: 'Post not found' });
       } else {
-        res.render('posts/edit', { post });
+        res.render('posts/edit', { posts });
       }
     } catch (error) {
       res.status(500).send({ error: 'An error occurred while fetching the post' });
@@ -70,11 +68,11 @@ exports.show = async (req, res) => {
   exports.update = async (req, res) => {
     try {
       const { title, content } = req.body;
-      const post = await db.post.findByPk(req.params.id);
-      if (!post) {
+      const posts = await db.post.findByPk(req.params.id);
+      if (!posts) {
         res.status(404).send({ error: 'Post not found' });
       } else {
-        await post.update({ title, content });
+        await posts.update({ title, content });
         res.redirect(`/posts`);
       }
     } catch (error) {
@@ -85,7 +83,7 @@ exports.show = async (req, res) => {
   // Delete - Delete a specific post
   exports.destroy = async (req, res) => {
     try {
-      const post = await db.post.destroy({
+      const posts = await db.post.destroy({
         where: {
             id: req.params.id
           }

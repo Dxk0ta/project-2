@@ -76,13 +76,13 @@ router.get('/profile', async (req, res)=>{
 		// otherwise, show them their profile
         try {
         // Query database to search for GIFs based on keywords
-        //     const gifs = await db.gif.findAll({
-        //     where: {
-        //     title: {
-        //     [Sequelize.Op.like]: `%${keywords}%`,
-        //     },
-        //     },
-        // });
+            const gifs = await db.gif.findAll({
+            where: {
+            title: {
+            [Sequelize.Op.like]: `%${keywords}%`,
+            },
+            },
+        });
             // Fetch posts data from the database using Sequelize
             const posts = await db.post.findAll();
             // Render the "posts.ejs" template with the fetched posts data
