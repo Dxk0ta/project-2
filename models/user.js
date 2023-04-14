@@ -2,7 +2,7 @@
 const {
   Model
 } = require('sequelize');
-const { post } = require('./Post');
+const { post } = require('./post');
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     /**
