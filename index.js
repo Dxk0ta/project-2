@@ -99,7 +99,7 @@ app.get('/gifs', async (req, res) => {
   }
 });
 let port=process.env.PORT
-app.listen(port || 3030, () => {
+app.listen(port || 3000, () => {
     console.log('the server is running!')
 })
 
