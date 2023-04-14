@@ -1,4 +1,4 @@
-"development": {
+{"development": {
   "username": "postgres",
   "password": "dakota",
   "database": "soliloquy",
@@ -14,4 +14,4 @@
   "database": "soliloquy_production",
   "host": "127.0.0.1",
   "dialect": "postgres"
-}
+}}

@@ -1,11 +1,12 @@
-const express = require('express')
-const app = express()
-const cookieParser = require('cookie-parser')
-const db = require('./models')
-const cryptoJS = require('crypto-js')
-const postController = require('./controllers/posts')
-const commentController = require('./controllers/comments')
-const userController = require('./controllers/users')
+const express = require('express');
+const app = express();
+const cookieParser = require('cookie-parser');
+const db = require('./models');
+const cryptoJS = require('crypto-js');
+const postController = require('./controllers/posts');
+const commentController = require('./controllers/comments');
+const { Sequelize, Model, DataTypes } = require('sequelize');
+// const userController = require('./controllers/users')
 require('dotenv').config()
 // MIDDLEWAREs
 app.set('view engine', 'ejs')

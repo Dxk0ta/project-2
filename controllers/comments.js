@@ -6,39 +6,74 @@ const comment = require('../models/comment')
 
 // Index - Get all comments
 exports.index = async (req, res) => {
-    console.log('indexing!!!!!!!!!!')
-    try {
-      const comments = await db.comment.findAll();
-  
-      res.render('comments/comments', { comments });
-    } catch (error) {
-      res.status(500).send({error: 'An error occurred while fetching comments'});
-    }
+  try {
+    const comments = await db.comment.findAll();
+    res.render('comments/comments', { comments });
+  } catch (error) {
+    res.status(500).send({ error: 'An error occurred while fetching comments' });
   }
-  // Show - Get a specific comment
-  exports.show = async (req, res) => {
-    console.log('showing!!!!!!!!')
-      try {
-        const comments = await db.comment.findByPk(req.params.id);
-        if (!comments) {
-          res.status(404).send({ error: 'comment not found' });
-        } else {
-          res.render('comments/show', { comments });
-        }
-      } catch (error) {
-        res.status(500).send({ error: 'An error occurred while fetching the comment' });
+}
+
+// Show - Get a specific comment
+exports.show = async (req, res) => {
+  console.log('im running')
+    try {
+      const comments = await db.comment.findByPk(req.params.id);
+      if (!comments) {
+        res.status(404).send({ error: 'Comment not found' });
+      } else {
+        res.render('comments/show', { comments });
       }
-    };
+    } catch (error) {
+      res.status(500).send({ error: 'An error occurred while fetching the comment' });
+    }
+  };
+
+  
+  // Create - Render create comment form
+  exports.create = async (req, res) => {
+    res.render('comments/create');
+  };
+  
+  // Store - Create a new comment
+  exports.store = async (req, res) => {
+    try {
+      const { content } = req.body;
+
+      console.log('hiiiiiiiii     ', {content})
+      const comments = await db.comment.create({ content });
+      console.log('I was called')
+
+      res.redirect(`/comments`);
+    } catch (error) {
+        console.log('error:  ', error)
+      res.status(500).send({ error: 'An error occurred while creating the comment' });
+    }
+  };
+  
+  // Edit - Render edit comment form
+  exports.edit = async (req, res) => {
+    try {
+      const comments = await db.comment.findByPk(req.params.id);
+      if (!comments) {
+        res.status(404).send({ error: 'Comment not found' });
+      } else {
+        res.render('comments/edit', { comment });
+      }
+    } catch (error) {
+      res.status(500).send({ error: 'An error occurred while fetching the comment' });
+    }
+  };
   
   // Update - Update a specific comment
   exports.update = async (req, res) => {
     try {
       const { content } = req.body;
-      const comment = await db.comment.findByPk(req.params.id);
-      if (!comment) {
-        res.status(404).send({ error: 'comment not found' });
+      const comments = await db.comment.findByPk(req.params.id);
+      if (!comments) {
+        res.status(404).send({ error: 'Comment not found' });
       } else {
-        await db.comment.update({ content });
+        await comments.update({ content });
         res.redirect(`/comments`);
       }
     } catch (error) {

@@ -5,8 +5,8 @@ const router = express.Router()
 const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
-const post = require('../models/Post')
-
+const posts = require('../models/post')
+const { Sequelize } = require('sequelize');
 db.sequelize.sync()
 
 router.get('/new', (req, res)=>{
@@ -72,16 +72,28 @@ router.get('/profile', async (req, res)=>{
     if (!res.locals.user) {
         res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
 	} else {
+        const { keywords } = req.query;
 		// otherwise, show them their profile
         try {
+        // Query database to search for GIFs based on keywords
+        //     const gifs = await db.gif.findAll({
+        //     where: {
+        //     title: {
+        //     [Sequelize.Op.like]: `%${keywords}%`,
+        //     },
+        //     },
+        // });
             // Fetch posts data from the database using Sequelize
             const posts = await db.post.findAll();
             // Render the "posts.ejs" template with the fetched posts data
+            // Render search results in a view
+            // res.render('users/profile.ejs', { gifs });
             res.render('posts/posts.ejs', { posts });
             res.render('users/profile.ejs', { user: res.locals.user })
-        } catch (err) {
-            console.error(err);
-            res.status(500).send('Internal Server Error');
+        } catch (error) {
+             // Handle error
+            console.error('Error searching for GIFs:', error);
+            res.status(500).json({ error: 'Internal server error' });
           }
 	}
 })

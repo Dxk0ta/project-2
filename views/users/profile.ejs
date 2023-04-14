@@ -13,5 +13,10 @@
         </li>
       <% }); %>
     </ul>
-</div>
+  </div>
+  <!-- Create a search form -->
+<form action="/search" method="get">
+<input type="text" name="keywords" placeholder="Enter keywords">
+<button type="submit">Search GIFs</button>
+</form>
 <%- include('../footer.ejs') %>
