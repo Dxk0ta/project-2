@@ -98,8 +98,8 @@ app.get('/gifs', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-
-app.listen(process.env.PORT || 3030, () => {
+let port=process.env.PORT
+app.listen(port || 3030, () => {
     console.log('the server is running!')
 })
 
