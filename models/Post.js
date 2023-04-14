@@ -2,8 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const comments = require('./comment');
 // const user = require('./user');
-// const { comment } = require('./Comment');
 module.exports = (sequelize, DataTypes) => {
   class post extends Model {
     /**
@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
           name: "user_id",
         },
       });
+      // Define the association between Post and Comment
+      models.post.hasMany(models.comment, {
+        foreignKey: "user_id",
+      });
+
     }
   }
   post.init({

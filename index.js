@@ -61,16 +61,20 @@ app.get('/posts/:id/edit',  postController.edit)
 // ------------ Comments -----------------
 
 // Create
-app.post('/comments/:id', commentController.store)
+app.post('/comments', commentController.store)
 
 // Read
 app.get('/comments', commentController.index) 
 
 app.get('/comments/:id',  commentController.show) 
 
+// Update
+app.post('/comments/:id', commentController.update) 
+
 // Delete
 app.post('/deleteComment/:id',  commentController.destroy) 
 
+app.get('/comments/:id',  commentController.show) 
 
 // Display create form
 app.get('/createComment', commentController.create) 
