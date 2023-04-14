@@ -2,16 +2,16 @@
   "username": "postgres",
   "password": "dakota",
   "database": "soliloquy",
-  "host": "https://soliloquyapp.herokuapp.com/",
+  "host": "localhost",
   "dialect": "postgres"
 },
 "test": {
   "database": "soliloquy_test",
-  "host": "https://soliloquyapp.herokuapp.com/",
+  "host": "localhost",
   "dialect": "postgres"
 },
 "production": {
   "database": "soliloquy_production",
-  "host": "https://soliloquyapp.herokuapp.com/",
+  "host": "localhost",
   "dialect": "postgres"
 }}
