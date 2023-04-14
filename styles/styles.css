@@ -1,0 +1,42 @@
+body {
+	background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+	url("https://media.istockphoto.com/id/1061786950/photo/sky-in-the-pink-and-blue-colors-effect-of-light-pastel-colored-of-sunset-clouds-cloud-on-the.jpg?b=1&s=170667a&w=0&k=20&c=NHX4Y9h374Mjp73IolBTVXGJGtqCjjt_Hiq5cAoWcTI=");
+	background-color: #cccccc;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-decoration:wavy;
+	font-family: sans-serif;
+}
+div {
+	display: flex;
+	align-items: center;
+}
+.navbar {
+	margin:10px;
+	width:900px;
+	font-family: sans-serif;
+}
+.navbar li {
+	display:block;
+	width:120px;
+	float:left;
+	margin-left:2px;
+	border: solid #202020;
+}
+
+.navbar a {
+	display:block;
+	padding:3px;
+	text-decoration:wavy;
+	background-color:#000;
+	color:rgb(197, 197, 244);
+}
+
+.navbar a:hover {
+	background-color:#009;
+	color:#fff;
+}
+.header {
+	display: flex;
+	justify-content: center
+}

@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/styles.css" type="text/css">
+    <link href="/styles/styles.css" rel="stylesheet">
     <title>Soliloquy</title>
 </head>
 <body>
-	
-	<nav class="nav_bar">
-		<ul>
-
-			<li><a href="/">Home</a></li>
-			<% if(user){ %>
-				
-				<li><a href="/users/profile">Profile</a></li>
-				<li><a href="/users/logout">Logout</a></li>
-				<li><a href="/posts">View Posts</a></li>
-				<li><a href="/comments">View Comments</a></li>
-				<li><a href="/gifs">View Popular Gifs</a></li>
-			<% } else { %> 
-				<li><a href="/users/new">Sign Up</a></li>
-				<li><a href="/users/login">Login</a></li>
-			<% } %>
-		</ul>
-	</nav>
-	
+	<div class="navbar">
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<% if(user){ %>		
+					<li><a href="/users/profile">Profile</a></li>
+					<li><a href="/users/logout">Logout</a></li>
+					<li><a href="/posts">Posts</a></li>
+					<li><a href="/comments">Comments</a></li>
+					<li><a href="/gifs">Gifs</a></li>
+				<% } else { %> 
+					<li><a href="/users/new">Sign Up</a></li>
+					<li><a href="/users/login">Login</a></li>
+				<% } %>
+			</ul>
+		</nav>
+		
+	</div>

@@ -5,10 +5,10 @@ const db = require('./models')
 const cryptoJS = require('crypto-js')
 const postController = require('./controllers/posts')
 const commentController = require('./controllers/comments')
-
 require('dotenv').config()
 // MIDDLEWAREs
 app.set('view engine', 'ejs')
+app.use("/styles", express.static(__dirname + '/styles'));
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
 // AUTHENTICATION MIDDLEWARE
@@ -21,7 +21,6 @@ app.use(async (req, res, next)=>{
   } else res.locals.user = null
   next()
 })
-app.use(express.static(__dirname + '/public'));
 
 // CONTROLLERS
 app.use('/users', require('./controllers/users'))
