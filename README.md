@@ -2,7 +2,7 @@
  Welcome to my second project! This is my first fullstack website and I wanted to make something fun! Soliloquy (Middle English: from late Latin soliloquium, from Latin solus ‘alone’ + loqui ‘speak’), is a blog website where you can creates posts based off of how you're feeling and write comments about them and use GIPHY API. It's like a fun digital jernal just for you!
 
 Here is the link! 
-https://git.heroku.com/soliloquyapp.git
+https://eroku.com/soliloquyap
 
 ## Getting Started
 ---
