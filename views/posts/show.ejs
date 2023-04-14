@@ -8,7 +8,6 @@
   <h1><%= post.title %></h1>
   <p><%= post.content %></p>
   <a href="/posts">Back to Posts</a>
-  <a href="/">Back to Home</a>
   <a href="/posts/<%= post.id %>/edit">Edit Post</a>
   <form action="/deletePost/<%= post.id %>" method="post">
     <button type="submit">Delete Post</button>

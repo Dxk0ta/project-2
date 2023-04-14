@@ -2,4 +2,16 @@
 <div class="greeting">
     <h2>Hello, <%= user.email%> :)</h2>
 </div>
+<div class="blog">
+    <h1>Welcome to Your Profile Page</h1>
+    <ul>
+      <% posts.forEach(post => { %>
+        <li>
+          <h3><%= post.title %></h3>
+          <p><%= post.content %></p>
+          <p>Author: <%= post.author %></p>
+        </li>
+      <% }); %>
+    </ul>
+</div>
 <%- include('../footer.ejs') %>

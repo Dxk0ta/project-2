@@ -5,6 +5,7 @@ const db = require('./models')
 const cryptoJS = require('crypto-js')
 const postController = require('./controllers/posts')
 const commentController = require('./controllers/comments')
+const userController = require('./controllers/users')
 require('dotenv').config()
 // MIDDLEWAREs
 app.set('view engine', 'ejs')
@@ -73,7 +74,6 @@ app.post('/deleteComment/:id',  commentController.destroy)
 
 // Display create form
 app.get('/createComment', commentController.create) 
-
 
 // Fetch trending GIFs from GIPHY API
 app.get('/gifs', async (req, res) => {

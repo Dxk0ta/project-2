@@ -1,11 +1,11 @@
 const express = require('express')
 const db = require('../models')
 // const user = require('../models/user')
-// const post = require('../models/Post')
 const router = express.Router()
 const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
+const post = require('../models/Post')
 
 db.sequelize.sync()
 
@@ -67,13 +67,22 @@ router.get('/logout', (req, res)=>{
     res.redirect('/')
 })
 
-router.get('/profile', (req, res)=>{
+router.get('/profile', async (req, res)=>{
 	// if the user is not logged ... we need to redirect to the login form
     if (!res.locals.user) {
         res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
 	} else {
 		// otherwise, show them their profile
-		res.render('users/profile.ejs', { user: res.locals.user })
+        try {
+            // Fetch posts data from the database using Sequelize
+            const posts = await db.post.findAll();
+            // Render the "posts.ejs" template with the fetched posts data
+            res.render('posts/posts.ejs', { posts });
+            res.render('users/profile.ejs', { user: res.locals.user })
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+          }
 	}
 })
 
