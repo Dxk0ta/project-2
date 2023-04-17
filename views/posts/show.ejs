@@ -1,6 +1,8 @@
 <%- include('../header.ejs', { user }) %>
-<h1><%= post.title %></h1>
-<p><%= post.content %></p>
+<h1>Posts:</h1>
+<p>Title: <%= post.title %></p>
+<p>Content: <%= post.content %></p>
+<h1>Comment Section:</h1>
  <ul>
     <% comments.forEach(comment => { %>
     <li>
@@ -8,6 +10,7 @@
       </li>
       <% }); %>
   </ul>
+<h1>Gif Section:</h1>
 <a href="/posts">Back to Posts</a>
 <a href="/posts/<%= post.id %>/edit">Edit Post</a>
 <a href="/comments/<%= comments.id %>">Edit Comments</a>

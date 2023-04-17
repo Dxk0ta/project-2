@@ -11,13 +11,6 @@
         <label for="content">Content:</label>
         <textarea id="content" name="content"></textarea>
         <br>
-        <ul>
-            <% gifs.forEach(gif => { %>
-                <li>
-                    <img src="<%= gif.url %>" ></img>
-                </li>
-                <% }); %>
-        </ul>
         <button type="submit">Create Post</button>
     </form>
 </div>

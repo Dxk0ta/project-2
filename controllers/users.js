@@ -76,8 +76,7 @@ router.get('/profile', async (req, res)=>{
             // Fetch posts data from the database using Sequelize
             const posts = await db.post.findAll();
             // Render the "posts.ejs" template with the fetched posts data
-            res.render('posts/posts.ejs', { posts });
-            res.render('users/profile.ejs', { user: res.locals.user })
+            res.render('users/profile.ejs', { user: res.locals.user, posts })
         } catch (err) {
             console.error(err);
             res.status(500).send('Internal Server Error');

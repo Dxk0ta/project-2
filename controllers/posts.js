@@ -18,8 +18,8 @@ exports.show = async (req, res) => {
     try {
       const post = await db.post.findByPk(req.params.id);
       const comments = await db.comment.findAll();
-      console.log(post)
-      console.log(comments)
+      // console.log(post)
+      // console.log(comments)
       res.render('posts/show', { comments, post });
       
     } catch (error) {
