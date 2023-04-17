@@ -1,11 +1,13 @@
  # Soliloquy
- Welcome to my second project! This is my first fullstack website and I wanted to make something fun! Soliloquy (Middle English: from late Latin soliloquium, from Latin solus ‘alone’ + loqui ‘speak’), is a blog website where you can creates posts based off of how you're feeling and write comments about them and use GIPHY API. It's like a fun digital jernal just for you!
+ Welcome to my second project! This is my first fullstack website and I wanted to make something fun! Soliloquy (middle English word meaning "speaking alone), is a blog website where you can creates posts based off of how you're feelings and write comments about them and use GIPHY API. It's like a fun digital jernal just for you!
 
-Here is the link! 
-Heroku git URL
+Here is the live link! 
 https://soliloquyapp.herokuapp.com/
 
-## Getting Started3
+Here's the github link!
+https://github.com/Dxk0ta/project-2.git
+
+## Getting Started
 ---
 I started with visualizing how I wanted my website to look, how I wanted it to run, and what it would actually be doing. Once I had a clear picture I started building my wireframe onto the computer. After the wirefame was built, being able to visually see it and all the paths made mading the ERDs and restful routing charts easier.
 
@@ -109,7 +111,12 @@ I finished styling all of my pages and was able to add a background with a lower
 
 ## Post Project
 ---
-
+I feel like I went into this project really orginized and very quickly unraveled. My biggest take away from this project is staying true to the plan I have made and working through my website step by step. I start too many side projects, get stuck on a bug, don't finish them and tell myself I will go back to them. This caused a huge mess I had to clean up and took up way too much on my time. Next project I will follow step by step and make sure Im building working code up from the bottom.
 
 ## Sources Used
 ---
+* draw.io
+* Giphy API
+* Sequelize Docs
+* Postgres Docs
+* Heroku Docs
