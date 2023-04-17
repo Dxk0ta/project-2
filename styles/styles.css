@@ -6,6 +6,10 @@ body {
 	background-size: cover;
 	text-decoration:wavy;
 	font-family: sans-serif;
+	margin: 0;
+	display: grid;
+	/* grid-auto-flow :column; */
+	place-content: center;
 }
 div {
 	display: flex;
@@ -39,3 +43,22 @@ div {
 	display: flex;
 	justify-content: center
 }
+
+img {
+	--_g: 10% /45% 45% no-repeat linear-gradient(#000 0 0);
+	--m:
+	  left   var(--_i,0%) top    var(--_g),
+	  bottom var(--_i,0%) left   var(--_g),
+	  top    var(--_i,0%) right  var(--_g),
+	  right  var(--_i,0%) bottom var(--_g);
+	-webkit-mask: var(--m);
+			mask: var(--m);
+	outline: 100vmax solid #00B4FF;
+	outline-offset: -100vmax;
+	transition: .3s linear;
+	cursor: pointer;
+  }
+  img:hover {
+	--_i: 10%;
+	outline-color: #0000;
+  }
