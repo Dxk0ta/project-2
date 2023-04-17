@@ -79,7 +79,7 @@ router.get('/profile', async (req, res)=>{
             res.render('users/profile.ejs', { user: res.locals.user, posts })
         } catch (err) {
             console.error(err);
-            res.status(500).send(err, 'Internal Server Error');
+            res.status(500).send('Internal Server Error');
           }
 	}
 })
