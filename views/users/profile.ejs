@@ -1,16 +1,16 @@
 <%- include('../header.ejs', { user }) %>
 <div class="greeting">
-    <h2>Hello, <%= user.email%> :)</h2>
+  <h2>Hello, <%= user.email%> :)</h2>
 </div>
 <div class="blog">
-    <h1>Welcome to Your Profile Page</h1>
-    <ul>
-      <% posts.forEach(post => { %>
-        <li>
-          <h3><%= post.title %></h3>
-          <p><%= post.content %></p>
-        </li>
+  <h1>Welcome to Your Profile Page</h1>
+  <ul>
+    <% posts.forEach(post => { %>
+    <li>
+      <h3><%= post.title %></h3>
+      <p><%= post.content %></p>
+      </li>
       <% }); %>
-    </ul>
-  </div>
+  </ul>
+</div>
 <%- include('../footer.ejs') %>

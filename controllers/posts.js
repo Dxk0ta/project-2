@@ -16,15 +16,12 @@ exports.index = async (req, res) => {
 // Show - Get a specific comment
 exports.show = async (req, res) => {
     try {
-      const posts = await db.post.findByPk(req.params.id);
-      if (!posts) {
-        res.status(404).send({ error: 'post not found' });
-      } else {
-        const comments = await db.comment.findAll();
-        // Render the "posts.ejs" template with the fetched posts data
-        // res.render('posts/show', { comments });
-        res.render('posts/show', { comments, posts });
-      }
+      const post = await db.post.findByPk(req.params.id);
+      const comments = await db.comment.findAll();
+      console.log(post)
+      console.log(comments)
+      res.render('posts/show', { comments, post });
+      
     } catch (error) {
       res.status(500).send({ error: 'An error occurred while fetching the post' });
     }

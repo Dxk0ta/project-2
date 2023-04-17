@@ -1,10 +1,16 @@
 <%- include('../header.ejs', { user }) %>
-<h1><%= posts.title %></h1>
-<p><%= posts.content %></p>
-<p><%= comments.content %></p>
+<h1><%= post.title %></h1>
+<p><%= post.content %></p>
+ <ul>
+    <% comments.forEach(comment => { %>
+    <li>
+      <p><%= comment.content %></p>
+      </li>
+      <% }); %>
+  </ul>
 <a href="/posts">Back to Posts</a>
-<a href="/posts/<%= posts.id %>/edit">Edit Post</a>
-<a href="/comments/<%= comments.id %>">View Comments</a>
-<form action="/deletePost/<%= posts.id %>" method="post">
+<a href="/posts/<%= post.id %>/edit">Edit Post</a>
+<a href="/comments/<%= comments.id %>">Edit Comments</a>
+<form action="/deletePost/<%= post.id %>" method="post">
   <button type="submit">Delete Post</button>
 <%- include('../footer.ejs') %>
