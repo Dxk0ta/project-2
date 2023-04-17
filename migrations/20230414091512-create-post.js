@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       image_url: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
