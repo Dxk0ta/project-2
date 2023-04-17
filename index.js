@@ -75,10 +75,16 @@ app.post('/comments/:id', commentController.update)
 // Delete
 app.post('/deleteComment/:id',  commentController.destroy) 
 
-app.get('/comments/:id',  commentController.show) 
+
+// Display create form
+app.get('/create', commentController.create) 
 
 // Display create form
 app.get('/createComment', commentController.create) 
+
+// Display update form
+app.get('/comments/:id/edit',  commentController.edit) 
+
 
 // Fetch trending GIFs from GIPHY API
 app.get('/gifs', async (req, res) => {
@@ -99,7 +105,7 @@ app.get('/gifs', async (req, res) => {
   }
 });
 let port=process.env.PORT
-app.listen(port || 3000, () => {
+app.listen(port || 3030, () => {
     console.log('the server is running!')
 })
 

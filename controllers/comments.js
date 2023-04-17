@@ -84,7 +84,7 @@ exports.show = async (req, res) => {
     
     // Create - Render create comment form
     exports.create = async (req, res) => {
-      res.render('comments/create');
+      res.render('comments/createComment');
     };
     
     // Store - Create a new comment
