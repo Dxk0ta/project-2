@@ -6,6 +6,7 @@ const cryptoJS = require('crypto-js');
 const postController = require('./controllers/posts');
 const commentController = require('./controllers/comments');
 const { Sequelize, Model, DataTypes } = require('sequelize');
+const axios = require("axios");
 // const userController = require('./controllers/users')
 require('dotenv').config()
 // MIDDLEWAREs
@@ -89,25 +90,54 @@ app.get('/createComment', commentController.create)
 app.get('/comments/:id/edit',  commentController.edit) 
 app.put('/comments/:id/edit',  commentController.edit) 
 
-
-// Fetch trending GIFs from GIPHY API
-app.get('/gifs', async (req, res) => {
+app.get('/search', async (req, res) => {
   try {
-    const response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=UJZdaoJgztUnBDxgMi1rbL2rka5wdq9c&limit=10');
-    const data = await response.json();
-    const gifs = data.data.map(gif => {
-      return {
-        title: gif.title,
-        url: gif.images.fixed_height.url
-      };
+    const { query } = req.query;
+    const apiKey = process.env.API_KEY;
+
+    // Make API request to Giphy
+    const response = await axios.get(`https://api.giphy.com/v1/gifs/search`, {
+      params: {
+        api_key: apiKey,
+        q: query,
+      },
     });
 
-    res.render('gifs/create', { gifs });
+    // Extract relevant data from API response
+    const gifs = response.data.data.map((gif) => {
+      return {
+        title: gif.title,
+        url: gif.images.fixed_height.url,
+      };
+    });
+    // Store the search results in the database
+    await db.gif.bulkCreate(gifs);
+
+    res.render('search', { gifs });
   } catch (error) {
     console.error(error);
-    res.status(500).send('Internal Server Error');
+    res.status(500).render({ message: 'Internal server error' });
   }
 });
+
+// Fetch trending GIFs from GIPHY API
+// app.get('/gifs', async (req, res) => {
+//   try {
+//     const response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=UJZdaoJgztUnBDxgMi1rbL2rka5wdq9c&limit=10');
+//     const data = await response.json();
+//     const gifs = data.data.map(gif => {
+//       return {
+//         title: gif.title,
+//         url: gif.images.fixed_height.url
+//       };
+//     });
+
+//     res.render('gifs/create', { gifs });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send('Internal Server Error');
+//   }
+// });
 let port=process.env.PORT
 app.listen(port || 8080, () => {
     console.log('the server is running!')
