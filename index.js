@@ -116,6 +116,7 @@ app.get('/search', async (req, res) => {
     res.render('search', { gifs });
   } catch (error) {
     console.error(error);
+    console.log('error!!   ', error)
     res.status(500).render('error getting search results');
   }
 });
