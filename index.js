@@ -7,6 +7,7 @@ const postController = require('./controllers/posts');
 const commentController = require('./controllers/comments');
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const axios = require("axios");
+const cors = require('cors');
 // const userController = require('./controllers/users')
 require('dotenv').config()
 // MIDDLEWAREs
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs')
 app.use("/styles", express.static(__dirname + '/styles'));
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
+app.use(cors()); // Enable CORS for all routes
 // AUTHENTICATION MIDDLEWARE
 app.use(async (req, res, next)=>{
   if(req.cookies.userId) {
