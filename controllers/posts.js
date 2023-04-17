@@ -31,7 +31,7 @@ exports.show = async (req, res) => {
   // Create - Render create post form
   exports.create = async (req, res) => {
     try {
-      const response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=UJZdaoJgztUnBDxgMi1rbL2rka5wdq9c&limit=10');
+      const response = await fetch(`https://api.giphy.com/v1/gifs/${process.env.API_KEY}&limit=10`);
       const data = await response.json();
       const gifs = data.data.map(gif => {
         return {
