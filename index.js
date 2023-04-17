@@ -89,23 +89,23 @@ app.get('/comments/:id/edit',  commentController.edit)
 
 
 // Fetch trending GIFs from GIPHY API
-app.get('/gifs', async (req, res) => {
-  try {
-    const response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=UJZdaoJgztUnBDxgMi1rbL2rka5wdq9c&limit=10');
-    const data = await response.json();
-    const gifs = data.data.map(gif => {
-      return {
-        title: gif.title,
-        url: gif.images.fixed_height.url
-      };
-    });
+// app.get('/gifs', async (req, res) => {
+  // try {
+  //   const response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=UJZdaoJgztUnBDxgMi1rbL2rka5wdq9c&limit=10');
+  //   const data = await response.json();
+  //   const gifs = data.data.map(gif => {
+  //     return {
+  //       title: gif.title,
+  //       url: gif.images.fixed_height.url
+  //     };
+  //   });
 
-    res.render('gifs/create', { gifs });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-});
+//     res.render('gifs/create', { gifs });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send('Internal Server Error');
+//   }
+// });
 let port=process.env.PORT
 app.listen(port || 3030, () => {
     console.log('the server is running!')
