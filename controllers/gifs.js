@@ -10,7 +10,7 @@ const { Sequelize } = require('sequelize');
 router.get('/search', async (req, res) => {
     try {
       const { query } = req.query;
-      const apiKey = UJZdaoJgztUnBDxgMi1rbL2rka5wdq9c;
+      const apiKey = "UJZdaoJgztUnBDxgMi1rbL2rka5wdq9c";
   
       // Make API request to Giphy
       const response = await axios.get(`https://api.giphy.com/v1/gifs/search`, {
