@@ -3,7 +3,7 @@
 
 Here is the link! 
 Heroku git URL
-https://git.heroku.com/soliloquyapp.git
+https://soliloquyapp.herokuapp.com/
 
 ## Getting Started3
 ---
