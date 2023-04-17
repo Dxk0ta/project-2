@@ -116,7 +116,7 @@ app.get('/search', async (req, res) => {
     res.render('search', { gifs });
   } catch (error) {
     console.error(error);
-    res.status(500).render({ message: 'Internal server error' });
+    res.status(500).render({ 'Internal server error' });
   }
 });
 
